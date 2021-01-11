@@ -3,7 +3,7 @@ export type Product = {
     "name": string;
     "price": number;
     "description": string;
-    "image_uri": string;
+    "imageUri": string;
 }
 
 export type OrderLocationData = {
