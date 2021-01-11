@@ -10,10 +10,10 @@ type Props = {
 
 
 
-function ProductCard({product, onSelectProduct, isSelected}: Props) {
+function ProductCard({ product, onSelectProduct, isSelected }: Props) {
     return (
         <div 
-        className={`order-card-container ${isSelected ? 'selected': ''}`}
+        className={`order-card-container ${isSelected ? 'selected' : ''}`}
         onClick={() => onSelectProduct(product)}
         >
             <h3 className="order-card-content">
