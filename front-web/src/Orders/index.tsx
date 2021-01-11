@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import StepsHeader from './StepsHeader';
+import ProductsList from './ProductsList';
+import { OrderLocationData, Product } from './types';
 import { fetchProducts, saveOrder } from '../api';
-import Footer from '../Footer';
-import { checkIsSelected } from './helpers';
 import OrderLocation from './OrderLocation';
 import OrderSummary from './OrderSummary';
-import ProductsList from './ProductsList';
-import StepsHeader from './StepsHeader';
+import Footer from '../Footer';
+import { checkIsSelected } from './helpers';
 import './styles.css';
-import { OrderLocationData, Product } from './types';
-import { toast } from 'react-toastify';
 
 function Orders(){
     const [products, setProducts] = useState<Product[]>([]);
@@ -62,14 +62,17 @@ function Orders(){
                 
                 <StepsHeader />
                 <ProductsList 
-                products={products}
-                onSelectProduct={handleSelectProduct}
-                selectedProducts={selectedProducts} />
-                <OrderLocation onChangeLocation={location => setOrderLocation(location)} />
+                    products={products}
+                    onSelectProduct={handleSelectProduct}
+                    selectedProducts={selectedProducts} 
+                />
+                <OrderLocation 
+                    onChangeLocation={location => setOrderLocation(location)} 
+                />
                 <OrderSummary 
-                amount={selectedProducts.length} 
-                totalPrice={totalPrice} 
-                onSubmit={handleSubmit}
+                    amount={selectedProducts.length} 
+                    totalPrice={totalPrice} 
+                    onSubmit={handleSubmit}
                 />
                 
             </div>
